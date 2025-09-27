@@ -15,6 +15,7 @@ class KhachHang extends Authenticatable
     protected $table = 'khach_hangs';
 
     protected $fillable = [
+        'avatar',
         'ten_khach_hang',
         'ngay_sinh',
         'dia_chi',

@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\BlogCommentController;
 use App\Http\Controllers\KhachHangController;
 use App\Http\Controllers\NhanvienController;
 use App\Http\Controllers\QuanlybanController;
 use App\Http\Controllers\ThucDonController;
+use App\Http\Controllers\BlogController;
+use App\Models\Blog;
+use App\Models\BlogComment;
 use App\Models\QuanLyBan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +40,28 @@ Route::post('/ban/dat-ban',[QuanlybanController::class,'datBan']);
 //gửi thông tin mã bàn, số điện thoại khách hàng (đăng kí tài khoản), thời gian đặt bàn
 Route::post('/ban/huy-ban/{id}',[QuanlybanController::class,'huyban']);
 //Truyền id là id của bàn
+
+
+
+
+
+
+//Đăng Blog
+Route::post('/blog/them-moi',[BlogController::class,'addNew']);
+//gửi thông tin title, mo_ta_ngan, ngay_dang, hinh_anh, content, ghi_chu
+Route::get('/blog/data',[BlogController::class,'getData']);
+//Lấy dữ liệu blog
+Route::post('/blog/delete/{id}',[BlogController::class,'delBlog']);
+//Xóa blog theo id
+Route::post('/blog/update',[BlogController::class,'updateBlog']);
+
+
+
+
+//Bình luận blog
+Route::post('/blog/comment/them-moi',[BlogCommentController::class,'addNewComment']);
+//gửi thông tin id_blog, id_khach_hang đang comment, comment
+//xem bình luận theo id blog
+Route::get('/blog/comment/data/{id_blog}',[BlogCommentController::class,'getCommentByBlogId']);
+
+

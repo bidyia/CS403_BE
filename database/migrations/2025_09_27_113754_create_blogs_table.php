@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('khach_hangs', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->text('avatar');
-            $table->string('ten_khach_hang');
-            $table->string('ngay_sinh');
-            $table->string('dia_chi');
-            $table->string('so_dien_thoai')->unique();
-            $table->string('mat_khau');
+            $table->string('title');
+            $table->string('mo_ta_ngan');
+            $table->string('ngay_dang');
+            $table->text('hinh_anh');
+            $table->text('content');
+            $table->string('ghi_chu');
             $table->timestamps();
         });
     }
+
+   
 };

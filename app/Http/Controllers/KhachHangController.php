@@ -11,6 +11,7 @@ class KhachHangController extends Controller
     public function register(Request $request)
     {
         KhachHang::create([
+            'avatar'             => $request->avatar,
             'ten_khach_hang'     => $request->ten_nhan_vien,
             'ngay_sinh'          => $request->ngay_sinh,
             'dia_chi'            => $request->dia_chi,
@@ -34,6 +35,7 @@ class KhachHangController extends Controller
                     'status' =>true,
                     'key' => $khach_hang->create_token('key')->plainTextToken,
                     'ten_khach_hang' => $khach_hang->ten_nhan_vien,
+                    'id_khach_hang' => $khach_hang->id,
                 ]);
         }else{
                 return response()->json([
