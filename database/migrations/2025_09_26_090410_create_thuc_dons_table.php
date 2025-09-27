@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('thuc_dons', function (Blueprint $table) {
             $table->id();
              $table->string('ten_mon_an');
-             $table->string('hinh_anh');
+             $table->text('hinh_anh');
              $table->string('mo_ta_ngan');
              $table->integer('gia');
              $table->string('don_vi_tinh');
