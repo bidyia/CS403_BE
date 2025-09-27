@@ -9,8 +9,7 @@ class ThucDonController extends Controller
 {
     public function getData()
     {
-        $data = ThucDon::select('id', 'ten_mon_an', 'hinh_anh', 'mo_ta_ngan', 'gia', 'don_vi_tinh','id_the_loai', 'trang_thai')
-                        ->get();
+        $data = ThucDon::get();
         return response()->json([
             'status' => true,
             'data' => $data,

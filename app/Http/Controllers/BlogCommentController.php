@@ -10,15 +10,23 @@ class BlogCommentController extends Controller
    public function addNewComment(Request $request)
    {
       //request có id_blog, id_khach_hang, comment
-      BlogComment::create([
+      $check  = BlogComment::create([
          'id_blog' => $request->id_blog,
          'id_khach_hang' => $request->id_khach_hang,
          'comment' => $request->comment,
       ]);
-      return response()->json([
+      if($check){
+         return response()->json([
          'status' => true,
          'message' => 'Thêm bình luận thành công!',
       ]);
+        }else{
+             return response()->json([
+                'status' => false,
+                'message' => 'Thêm bình luận thất bại!',
+             ]);
+      }
+     
    }
    public function getCommentByBlogId($id_blog)
    {

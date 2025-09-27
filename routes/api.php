@@ -6,6 +6,8 @@ use App\Http\Controllers\NhanvienController;
 use App\Http\Controllers\QuanlybanController;
 use App\Http\Controllers\ThucDonController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\GoiMonController;
+use App\Http\Controllers\HoaDonController;
 use App\Models\Blog;
 use App\Models\BlogComment;
 use App\Models\QuanLyBan;
@@ -34,14 +36,19 @@ Route::Post('/nhan-vien/dang-nhap',[NhanvienController::class,'login']);
 Route::Post('/khach-hang/dang-ky',[KhachHangController::class,'register']);
 Route::Post('/khach-hang/dang-nhap',[KhachHangController::class,'login']);
 
-
+ 
 //Đặt bàn
 Route::post('/ban/dat-ban',[QuanlybanController::class,'datBan']);
-//gửi thông tin mã bàn, số điện thoại khách hàng (đăng kí tài khoản), thời gian đặt bàn
+//gửi thông tin mã bàn, số điện thoại khác hàng, thời gian đặt bàn
 Route::post('/ban/huy-ban/{id}',[QuanlybanController::class,'huyban']);
 //Truyền id là id của bàn
 
 
+//Gọi món
+Route::post('/goi-mon/them-moi',[GoiMonController::class,'goiMon']);
+//gửi thông tin id_mon_an, id_ban_an, id_khach_hang, số lượng món ăn, ghi chú(có thể null)
+Route::get('/goi-mon/data/{id_ban}',[GoiMonController::class,'getDatabyIDBan']);
+//lấy dữ liệu gọi món theo id_ban
 
 
 
@@ -50,7 +57,7 @@ Route::post('/ban/huy-ban/{id}',[QuanlybanController::class,'huyban']);
 Route::post('/blog/them-moi',[BlogController::class,'addNew']);
 //gửi thông tin title, mo_ta_ngan, ngay_dang, hinh_anh, content, ghi_chu
 Route::get('/blog/data',[BlogController::class,'getData']);
-//Lấy dữ liệu blog
+//Lấy dữ liệu tất cả blog
 Route::post('/blog/delete/{id}',[BlogController::class,'delBlog']);
 //Xóa blog theo id
 Route::post('/blog/update',[BlogController::class,'updateBlog']);

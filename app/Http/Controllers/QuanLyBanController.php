@@ -10,11 +10,12 @@ class QuanLyBanController extends Controller
 {
     public function datBan(Request $request)
     {
-        $check = KhachHang::where('so_dien_thoai', $request->so_dien_thoai)->fist();
+
+        $check = KhachHang::where('so_dien_thoai', $request->so_dien_thoai)->first();
         $data = QuanLyBan::where('ma_ban', $request->ma_ban)->first();
         if ($check) {
             if ($data) {
-                $data::update([
+                $data->update([
                     'id_khach_hang'     => $check->id,
                     'thoi_gian_dat_ban' => $request->thoi_gian_dat_ban,
                     'trang_thai'        => '1',
