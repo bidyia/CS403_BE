@@ -12,7 +12,7 @@ class KhachHangController extends Controller
     {
         KhachHang::create([
             'avatar'             => $request->avatar,
-            'ten_khach_hang'     => $request->ten_nhan_vien,
+            'ten_khach_hang'     => $request->ten_khach_hang,
             'ngay_sinh'          => $request->ngay_sinh,
             'dia_chi'            => $request->dia_chi,
             'so_dien_thoai'      => $request->so_dien_thoai,
@@ -33,8 +33,8 @@ class KhachHangController extends Controller
                 return response()->json([
                     'message' => 'Đăng nhập thành công',
                     'status' =>true,
-                    'key' => $khach_hang->create_token('key')->plainTextToken,
-                    'ten_khach_hang' => $khach_hang->ten_nhan_vien,
+                    'key' => $khach_hang->createToken('key')->plainTextToken,
+                    'ten_khach_hang' => $khach_hang->ten_khach_hang,
                     'id_khach_hang' => $khach_hang->id,
                 ]);
         }else{

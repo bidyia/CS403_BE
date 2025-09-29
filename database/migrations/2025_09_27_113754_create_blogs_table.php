@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('ngay_dang');
             $table->text('hinh_anh');
             $table->text('content');
-            $table->string('ghi_chu');
+            $table->string('ghi_chu')->nullable();
             $table->timestamps();
         });
     }

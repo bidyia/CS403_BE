@@ -42,6 +42,8 @@ Route::post('/ban/dat-ban',[QuanlybanController::class,'datBan']);
 //gửi thông tin mã bàn, số điện thoại khác hàng, thời gian đặt bàn
 Route::post('/ban/huy-ban/{id}',[QuanlybanController::class,'huyban']);
 //Truyền id là id của bàn
+//load bàn
+Route::get('/ban/data',[QuanlybanController::class,'getData']);
 
 
 //Gọi món

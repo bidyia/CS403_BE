@@ -57,4 +57,12 @@ class QuanLyBanController extends Controller
             ]);
         }
     }
+    public function getData()
+    {
+        $data = QuanLyBan::select('id','so_cho_ngoi','trang_thai')->get();
+        return response()->json([
+            'status' => true,
+            'data' => $data,
+        ]);
+    }
 }

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         TheLoaiMonAnSeeder::class,
         ThucDonSeeder::class,
         QLyBanSeeder::class,
+        BlogSeeder::class,
        ]);
     }
 }
